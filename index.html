@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Plate | Next-Gen Mobility Technology</title>
+    <style>
+        /* Base Reset & Theme Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --bg-color: #0a0a0c;
+            --surface-color: #121216;
+            --accent-color: #ff3344;
+            --accent-glow: rgba(255, 51, 68, 0.2);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: #22222a;
+            --font-display: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-display);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Page Loading Transition */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            animation: fadeInPage 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        @keyframes fadeInPage {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Header / Hero Section */
+        header {
+            padding: 6rem 0 3rem 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 2px;
+            background: var(--accent-color);
+            box-shadow: 0 0 20px var(--accent-color);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
+            max-width: 600px;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        .sub-tagline {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+        }
+
+        /* Tech-Theme Animated Blank Container */
+        .render-container {
+            margin: 4rem auto;
+            background: linear-gradient(135deg, var(--surface-color) 0%, #1a1a22 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            height: 250px;
+            max-width: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            padding: 0; 
+            overflow: hidden;
+        }
+
+        /* Laser Scan Line Effect */
+        .render-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, transparent, var(--accent-color), transparent);
+            box-shadow: 0 0 12px var(--accent-color);
+            animation: techScan 3s linear infinite;
+        }
+
+        @keyframes techScan {
+            0% { top: 0%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+
+        /* Main Content Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; gap: 3rem; }
+            h1 { font-size: 2.5rem; }
+            .footer-panel { grid-template-columns: 1fr !important; gap: 2rem; }
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        .about-text {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Tech Specs List */
+        .tech-list {
+            list-style: none;
+        }
+        .tech-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+        .tech-list li::before {
+            content: "//";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+            font-family: monospace;
+        }
+
+        /* Upgraded Section Boxes with Dynamic Hover Transitions */
+        .footer-panel {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin-bottom: 8rem;
+        }
+
+        .footer-box {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                        border-color 0.4s ease, 
+                        box-shadow 0.4s ease;
+        }
+
+        /* Smooth Grow & Interactive Highlight Animation */
+        .footer-box:hover {
+            transform: scale(1.03);
+            border-color: var(--accent-color);
+            box-shadow: 0 20px 40px rgba(255, 51, 68, 0.08);
+        }
+
+        .partnership-text {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .meta-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+            margin-bottom: 0.35rem;
+        }
+        .meta-value {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 1.5rem;
+        }
+        .meta-value:last-child {
+            margin-bottom: 0;
+        }
+        .meta-value a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+        .meta-value a:hover {
+            text-shadow: 0 0 8px var(--accent-glow);
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Hero Header -->
+        <header>
+            <h1>My Plate</h1>
+            <p class="tagline">Redefining what mobility technology on a vehicle is. The future license plate of the world.</p>
+            <p class="sub-tagline">The next generation of intelligent vehicle plates.</p>
+        </header>
+
+        <!-- Animated Scanner Container -->
+        <div class="render-container"></div>
+
+        <!-- Details Grid -->
+        <div class="grid">
+            <div>
+                <h2>What we’re building</h2>
+                <p class="about-text">
+                    A digitally enabled vehicle plate platform combining a legally recognizable plate structure with a programmable electronic display and connected software.
+                </p>
+            </div>
+            <div>
+                <h2>Technology</h2>
+                <ul class="tech-list">
+                    <li>Full-color digital display</li>
+                    <li>Smartphone connectivity</li>
+                    <li>Customizable visual experiences</li>
+                    <li>Automotive power architecture</li>
+                    <li>Designed for future DMV/DOT integration</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Partnership & Contact Panel Modules -->
+        <div class="footer-panel">
+            <div class="footer-box">
+                <h2>For partnerships & sourcing</h2>
+                <p class="partnership-text">
+                    We’re currently developing our prototype and working with technology, electronics, manufacturing, and mobility partners.
+                </p>
+            </div>
+            <div class="footer-box">
+                <div class="meta-label">Founder / CEO</div>
+                <div class="meta-value">Ryan Halle</div>
+                
+                <div class="meta-label">Contact</div>
+                <div class="meta-value">
+                    <a href="mailto:Ryanh@licenseplatelabs.com">Ryanh@licenseplatelabs.com</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
