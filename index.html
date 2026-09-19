@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Plate | Next-Gen Mobility Technology</title>
+    <title>Color Plate | Next-Gen Mobility Technology</title>
     <style>
         /* Base Reset & Theme Variables */
         * {
@@ -69,6 +69,33 @@
             text-transform: uppercase;
             color: #fff;
             margin-bottom: 1rem;
+        }
+
+        /* Premium Animated Rainbow Chrome Styling */
+        .rainbow-chrome {
+            background: linear-gradient(
+                to right,
+                #ff3344 0%,
+                #ff9933 14%,
+                #ffff33 28%,
+                #33cc66 42%,
+                #3399ff 56%,
+                #9933ff 70%,
+                #ff33cc 84%,
+                #ff3344 100%
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            /* Multi-layer high-contrast chrome reflection shadow configuration */
+            filter: drop-shadow(0 2px 1px rgba(255,255,255,0.1)) drop-shadow(0 -1px 1px rgba(0,0,0,0.8));
+            animation: chromeShift 5s linear infinite;
+        }
+
+        @keyframes chromeShift {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
         }
 
         .tagline {
@@ -201,7 +228,6 @@
                         box-shadow 0.4s ease;
         }
 
-        /* Smooth Grow & Interactive Highlight Animation */
         .footer-box:hover {
             transform: scale(1.03);
             border-color: var(--accent-color);
@@ -246,7 +272,7 @@
     <div class="container">
         <!-- Hero Header -->
         <header>
-            <h1>Color Plate</h1>
+            <h1><span class="rainbow-chrome">Color</span> Plate</h1>
             <p class="tagline">A better way to experience your car. Enhance your vehicle.</p>
             <p class="sub-tagline">The future of the road.</p>
         </header>
@@ -288,11 +314,5 @@
                 
                 <div class="meta-label">Contact</div>
                 <div class="meta-value">
-                    <a href="mailto:Ryanh@licenseplatelabs.com">info@licenseplatelabs.com</a>
+                    <a href="mailto:Ryanh@licenseplatelabs.com">Ryanh@licenseplatelabs.com</a>
                 </div>
-            </div>
-        </div>
-    </div>
-
-</body>
-</html>
