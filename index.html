@@ -12,13 +12,13 @@
             box-sizing: border-box;
         }
         :root {
-            --bg-color: #0a0a0c;
-            --surface-color: #121216;
+            --bg-color: #f8f9fa; /* Ghost White Background Tint */
+            --surface-color: #ffffff; /* Clean White Surface Blocks */
             --accent-color: #ff3344;
-            --accent-glow: rgba(255, 51, 68, 0.2);
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --border-color: #22222a;
+            --accent-glow: rgba(255, 51, 68, 0.15);
+            --text-main: #111116; /* High Contrast Dark Typography */
+            --text-muted: #555562;
+            --border-color: #e2e4e9;
             --font-display: 'Helvetica Neue', Arial, sans-serif;
         }
 
@@ -57,9 +57,9 @@
             left: 50%;
             transform: translateX(-50%);
             width: 200px;
-            height: 2px;
+            height: 3px;
             background: var(--accent-color);
-            box-shadow: 0 0 20px var(--accent-color);
+            box-shadow: 0 4px 10px var(--accent-glow);
         }
 
         h1 {
@@ -67,7 +67,7 @@
             font-weight: 900;
             letter-spacing: 0.3em;
             text-transform: uppercase;
-            color: #fff;
+            color: var(--text-main);
             margin-bottom: 1rem;
         }
 
@@ -88,8 +88,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            /* Multi-layer high-contrast chrome reflection shadow configuration */
-            filter: drop-shadow(0 2px 1px rgba(255,255,255,0.1)) drop-shadow(0 -1px 1px rgba(0,0,0,0.8));
+            filter: drop-shadow(0 1px 0px rgba(0,0,0,0.1));
             animation: chromeShift 5s linear infinite;
         }
 
@@ -117,8 +116,8 @@
         /* Tech-Theme Animated Blank Container */
         .render-container {
             margin: 4rem auto;
-            background: linear-gradient(135deg, var(--surface-color) 0%, #1a1a22 100%);
-            border: 1px solid var(--border-color);
+            background: linear-gradient(135deg, #121216 0%, #1a1a22 100%);
+            border: 1px solid #2d2d35;
             border-radius: 12px;
             height: 250px;
             max-width: 600px;
@@ -126,7 +125,7 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
             padding: 0; 
             overflow: hidden;
         }
@@ -169,7 +168,7 @@
             text-transform: uppercase;
             letter-spacing: 0.15em;
             margin-bottom: 1.5rem;
-            color: #fff;
+            color: var(--text-main);
             position: relative;
             padding-bottom: 0.5rem;
         }
@@ -209,7 +208,7 @@
             font-family: monospace;
         }
 
-        /* Upgraded Section Boxes with Dynamic Hover Transitions */
+        /* Section Boxes with Dynamic Hover Transitions */
         .footer-panel {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -222,7 +221,7 @@
             border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 3rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
                         border-color 0.4s ease, 
                         box-shadow 0.4s ease;
@@ -250,7 +249,7 @@
         .meta-value {
             font-size: 1.2rem;
             font-weight: 500;
-            color: #fff;
+            color: var(--text-main);
             margin-bottom: 1.5rem;
         }
         .meta-value:last-child {
@@ -316,3 +315,4 @@
                 <div class="meta-value">
                     <a href="mailto:Ryanh@licenseplatelabs.com">Ryanh@licenseplatelabs.com</a>
                 </div>
+            </div>
